@@ -6,6 +6,7 @@ import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 const Home = () => {
   const [quote, setQuote] = useState("");
   const navigate = useNavigate();
+  const userDetails = JSON.parse(localStorage.getItem("user"));
 
   // const auth = Boolean(localStorage.getItem("isLoggedIn"));
   // // console.log(auth);
@@ -41,7 +42,7 @@ const Home = () => {
           <Nav.Link
             to="/login"
             onClick={logOutUser}
-            className="text-white text-center  "
+            className="text-white text-center fw-normal fst-italic"
           >
             Logout
           </Nav.Link>
@@ -62,10 +63,14 @@ const Home = () => {
             <h1 className="fs-1 fw-bold ">Welcome</h1>
             <p className="fs-2 fw-normal ">
               <FaQuoteLeft />
-              <span className="mx-3">{quote.content}</span>
+              <span className="mx-3">
+                {quote.content ? quote.content : "Logged In succesfully"}
+              </span>
               <FaQuoteRight />
             </p>
-            <p className="fs-2 fw-bolder fst-italic ">{quote.author}</p>
+            <p className="fs-2 fw-bolder fst-italic ">
+              {quote.author ? quote.author : userDetails.email}
+            </p>
           </div>
         </Col>
       </Container>
