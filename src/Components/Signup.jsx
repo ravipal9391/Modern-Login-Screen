@@ -1,4 +1,4 @@
-import { Form, Col, Button, InputGroup } from "react-bootstrap";
+import { Container, Form, Col, Button, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -40,8 +40,8 @@ const Signup = () => {
   // console.log(newdata);
 
   return (
-    <div className="vh-100 d-flex ">
-      <Col lg={7} className="h-100 d-sm-none d-md-block">
+    <Container fluid={true} className="vh-100 vw-100 d-flex p-0">
+      <Col lg={7} className="h-100 d-none d-lg-block">
         <img
           src="https://images.unsplash.com/photo-1473283147055-e39c51463929?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="signUp-Wall"
@@ -49,9 +49,10 @@ const Signup = () => {
         />
       </Col>
       <Col
+        md={11}
         lg={5}
         sm={12}
-        className="container d-flex flex-column justify-content-center align-items-center px-5"
+        className="d-flex flex-column justify-content-center align-items-center mx-auto"
       >
         <h1 className="fw-bold fs-1 mb-4">Sign Up</h1>
         <Form className="form-card" onSubmit={handleSubmit(onSubmit)}>
@@ -104,7 +105,7 @@ const Signup = () => {
           </p>
         </Form>
       </Col>
-    </div>
+    </Container>
   );
 };
 
